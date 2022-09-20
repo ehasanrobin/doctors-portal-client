@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../FIrebase/Firebase.init";
 import Loading from "../Loading/Loading";
 
@@ -20,7 +20,6 @@ const Myappointment = () => {
       }
     )
       .then((res) => {
-        console.log("res", res);
         if (res.status === 401 || res.status === 403) {
           signOut(auth);
           localStorage.removeItem("accessToken");
@@ -52,6 +51,8 @@ const Myappointment = () => {
                 <th>Patietenct Email</th>
                 <th>Date</th>
                 <th>Slot</th>
+                <th>Price</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -64,6 +65,18 @@ const Myappointment = () => {
                   <td>{a.email}</td>
                   <td>{a.date}</td>
                   <td>{a.slot}</td>
+                  <td>{a.price}</td>
+                  <td>
+                    {a.price && !a.paid && (
+                      <Link
+                        to={`/dashboard/payment/${a._id}`}
+                        className="btn btn-primary"
+                      >
+                        pay
+                      </Link>
+                    )}
+                    {a.price && a.paid && <p className="text-success">paid</p>}
+                  </td>
                 </tr>
               ))}
             </tbody>

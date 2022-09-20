@@ -1,14 +1,17 @@
 [
   {
-    "name": "Dr Fouad. M. Abbas, M.D.",
+    "name": "Dermatologists",
+    "price": 99,
     "slots": ["8:30 PM - 9:00 PM", "9:00 PM - 9:30 PM", "9:30 PM - 10:0 PM"]
   },
   {
-    "name": "Dr Fouad. M. Abbas, M.D.",
+    "name": "Ophthalmologists",
+    "price": 99,
     "slots": []
   },
   {
-    "name": "Dr William A. Abdu, M.D, M.S",
+    "name": "Cardiologists",
+    "price": 99,
     "slots": [
       "8:00 PM - 8:30 PM",
       "8:30 PM - 9:00 PM",
@@ -17,7 +20,8 @@
     ]
   },
   {
-    "name": "Dr Myles. B. Abbott, M.D",
+    "name": "Neurologists",
+    "price": 99,
     "slots": [
       "8:00 PM - 8:30 PM",
       "8:30 PM - 9:00 PM",

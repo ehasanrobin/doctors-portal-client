@@ -5,8 +5,11 @@ import "./App.css";
 import About from "./Pages/About/About";
 import Appointment from "./Pages/Appointment/Appointment";
 import ContactUs from "./Pages/ContactUs/ContactUs";
+import AddDoctor from "./Pages/Dashboard/AddDoctor";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import ManageDoctors from "./Pages/Dashboard/ManageDoctors";
 import Myappointment from "./Pages/Dashboard/Myappointment";
+import Payment from "./Pages/Dashboard/Payment";
 import Review from "./Pages/Dashboard/Review";
 import Users from "./Pages/Dashboard/Users";
 import Home from "./Pages/Home/Home";
@@ -44,11 +47,28 @@ function App() {
         >
           <Route index element={<Myappointment></Myappointment>}></Route>
           <Route path="review" element={<Review></Review>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route
             path="users"
             element={
               <RequiredAdmin>
                 <Users></Users>
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="addDoctors"
+            element={
+              <RequiredAdmin>
+                <AddDoctor></AddDoctor>
+              </RequiredAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageDoctors"
+            element={
+              <RequiredAdmin>
+                <ManageDoctors></ManageDoctors>
               </RequiredAdmin>
             }
           ></Route>
