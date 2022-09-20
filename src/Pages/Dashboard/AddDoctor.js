@@ -19,7 +19,6 @@ const AddDoctor = () => {
   const imgStorageKey = "a3bb2ebae7abfe87c1b15dc40dca577a";
 
   const onSubmit = (data) => {
-    console.log(data);
     const image = data.img[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -38,7 +37,7 @@ const AddDoctor = () => {
             speciality: data.speciality,
             img: img,
           };
-          console.log(doctor);
+
           //   add to database
           fetch("https://doctors-portal-server-10001.herokuapp.com/doctor/", {
             headers: {

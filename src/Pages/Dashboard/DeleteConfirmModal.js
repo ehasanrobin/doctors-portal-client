@@ -17,7 +17,6 @@ const DeleteConfirmModal = ({ deleteConfirm, refetch }) => {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         refetch();
         toast(`Doctor ${name} Deleted  `);
       });

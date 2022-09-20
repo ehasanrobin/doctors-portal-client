@@ -70,7 +70,7 @@ const CheckoutForm = ({ appointment }) => {
         appointment: _id,
         transactionId: paymentIntent.id,
       };
-      console.log(payment);
+
       fetch(
         `https://doctors-portal-server-10001.herokuapp.com/booking/${_id}`,
         {
@@ -85,7 +85,6 @@ const CheckoutForm = ({ appointment }) => {
         .then((res) => res.json())
         .then((data) => {
           setProcessing(false);
-          console.log(data);
         });
     }
   };

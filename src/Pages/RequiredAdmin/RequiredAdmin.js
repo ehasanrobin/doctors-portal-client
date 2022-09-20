@@ -13,7 +13,6 @@ const RequiredAdmin = ({ children }) => {
     return <Loading></Loading>;
   }
   if (!user || !admin) {
-    console.log("admin isn't there");
     return <Navigate to="/" state={{ from: location }} replace={true} />;
   }
 

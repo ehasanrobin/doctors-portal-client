@@ -6,7 +6,7 @@ import DoctorRow from "./DoctorRow";
 
 const ManageDoctors = () => {
   const [deleteConfirm, setDeleteConfirm] = useState(null);
-  console.log(deleteConfirm);
+
   const {
     isLoading,
     data: doctors,
