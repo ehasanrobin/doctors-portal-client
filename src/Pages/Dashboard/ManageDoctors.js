@@ -12,7 +12,7 @@ const ManageDoctors = () => {
     data: doctors,
     refetch,
   } = useQuery("doctors", () =>
-    fetch(`https://doctors-portal-server-10001.herokuapp.com/doctors`, {
+    fetch(`http://localhost:5000/doctors`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

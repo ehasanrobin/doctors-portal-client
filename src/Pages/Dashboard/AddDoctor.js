@@ -7,9 +7,7 @@ import Loading from "../Loading/Loading";
 const AddDoctor = () => {
   const { register, handleSubmit, reset } = useForm();
   const { isLoading, data: services } = useQuery("services", () =>
-    fetch(`https://doctors-portal-server-10001.herokuapp.com/services`).then(
-      (res) => res.json()
-    )
+    fetch(`http://localhost:5000/services`).then((res) => res.json())
   );
 
   if (isLoading) {
@@ -39,7 +37,7 @@ const AddDoctor = () => {
           };
 
           //   add to database
-          fetch("https://doctors-portal-server-10001.herokuapp.com/doctor/", {
+          fetch("http://localhost:5000/doctor/", {
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",

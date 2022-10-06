@@ -5,16 +5,13 @@ const DeleteConfirmModal = ({ deleteConfirm, refetch }) => {
   const { name, email } = deleteConfirm;
 
   const handleDelete = () => {
-    fetch(
-      `https://doctors-portal-server-10001.herokuapp.com/doctors/${email}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`http://localhost:5000/doctors/${email}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((result) => {
         refetch();

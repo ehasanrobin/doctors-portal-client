@@ -7,15 +7,12 @@ const UserRow = ({ user, index, refetch }) => {
   const handleAdmin = () => {
     const proceed = window.confirm("are you sure?");
     if (proceed) {
-      fetch(
-        `https://doctors-portal-server-10001.herokuapp.com/user/admin/${email}`,
-        {
-          method: "PUT",
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      )
+      fetch(`http://localhost:5000/user/admin/${email}`, {
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {

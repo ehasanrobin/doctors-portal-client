@@ -11,7 +11,7 @@ const stripePromise = loadStripe(
 );
 const Payment = () => {
   const { id } = useParams();
-  const url = `https://doctors-portal-server-10001.herokuapp.com/booking/${id}`;
+  const url = `http://localhost:5000/booking/${id}`;
   const { data: appointment, isLoading } = useQuery("bookings", () =>
     fetch(url, {
       method: "GET",

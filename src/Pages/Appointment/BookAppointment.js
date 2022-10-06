@@ -15,9 +15,9 @@ const BookAppointment = ({ selected }) => {
     data: services,
     refetch,
   } = useQuery(["available", formatDate], () =>
-    fetch(
-      `https://doctors-portal-server-10001.herokuapp.com/available?date=${formatDate}`
-    ).then((res) => res.json())
+    fetch(`http://localhost:5000/available?date=${formatDate}`).then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {

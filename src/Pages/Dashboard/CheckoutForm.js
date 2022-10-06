@@ -12,17 +12,14 @@ const CheckoutForm = ({ appointment }) => {
   const { _id, price, name, email, date } = appointment;
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch(
-      "https://doctors-portal-server-10001.herokuapp.com/create-payment-intent",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify({ price }),
-      }
-    )
+    fetch("http://localhost:5000/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ price }),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -43,7 +40,6 @@ const CheckoutForm = ({ appointment }) => {
     });
     const card = elements.getElement(CardElement);
     if (error) {
-      setProcessing(false);
       setDisplayError(error.message);
     }
 
@@ -64,28 +60,23 @@ const CheckoutForm = ({ appointment }) => {
       setDisplayError("");
 
       setTransaction(paymentIntent.id);
-      setSuccess("payment completed");
+      setSuccess("congrats,payment successfull");
       // backend api calll
       const payment = {
         appointment: _id,
         transactionId: paymentIntent.id,
       };
 
-      fetch(
-        `https://doctors-portal-server-10001.herokuapp.com/booking/${_id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-          body: JSON.stringify(payment),
-        }
-      )
+      fetch(`http://localhost:5000/booking/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
         .then((res) => res.json())
-        .then((data) => {
-          setProcessing(false);
-        });
+        .then((data) => {});
     }
   };
 
