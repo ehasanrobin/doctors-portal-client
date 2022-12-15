@@ -15,9 +15,9 @@ const BookAppointment = ({ selected }) => {
     data: services,
     refetch,
   } = useQuery(["available", formatDate], () =>
-    fetch(`http://localhost:5000/available?date=${formatDate}`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://doctors-portal-server-kappa-seven.vercel.app/available?date=${formatDate}`
+    ).then((res) => res.json())
   );
 
   if (isLoading) {

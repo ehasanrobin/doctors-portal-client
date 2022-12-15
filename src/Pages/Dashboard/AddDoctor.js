@@ -7,7 +7,9 @@ import Loading from "../Loading/Loading";
 const AddDoctor = () => {
   const { register, handleSubmit, reset } = useForm();
   const { isLoading, data: services } = useQuery("services", () =>
-    fetch(`http://localhost:5000/services`).then((res) => res.json())
+    fetch(`https://doctors-portal-server-kappa-seven.vercel.app/services`).then(
+      (res) => res.json()
+    )
   );
 
   if (isLoading) {
@@ -37,15 +39,18 @@ const AddDoctor = () => {
           };
 
           //   add to database
-          fetch("http://localhost:5000/doctor/", {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-            },
-            method: "POST",
-            body: JSON.stringify(doctor),
-          })
+          fetch(
+            "https://doctors-portal-server-kappa-seven.vercel.app/doctor/",
+            {
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+              method: "POST",
+              body: JSON.stringify(doctor),
+            }
+          )
             .then((res) => res.json())
             .then((result) => {
               if (result.insertedId) {

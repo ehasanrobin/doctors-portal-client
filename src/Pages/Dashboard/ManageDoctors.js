@@ -12,7 +12,7 @@ const ManageDoctors = () => {
     data: doctors,
     refetch,
   } = useQuery("doctors", () =>
-    fetch(`http://localhost:5000/doctors`, {
+    fetch(`https://doctors-portal-server-kappa-seven.vercel.app/doctors`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

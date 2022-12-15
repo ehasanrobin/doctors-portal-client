@@ -7,12 +7,15 @@ const UserRow = ({ user, index, refetch }) => {
   const handleAdmin = () => {
     const proceed = window.confirm("are you sure?");
     if (proceed) {
-      fetch(`http://localhost:5000/user/admin/${email}`, {
-        method: "PUT",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      fetch(
+        `https://doctors-portal-server-kappa-seven.vercel.app/user/admin/${email}`,
+        {
+          method: "PUT",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {

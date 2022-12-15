@@ -7,13 +7,16 @@ const useToken = (user) => {
     const currentUser = { email: email };
 
     if (email) {
-      fetch(`http://localhost:5000/user/${email}`, {
-        method: "PUT", // Method itself
-        headers: {
-          "Content-type": "application/json; charset=UTF-8", // Indicates the content
-        },
-        body: JSON.stringify(currentUser), // We send data in JSON format
-      })
+      fetch(
+        `https://doctors-portal-server-kappa-seven.vercel.app/user/${email}`,
+        {
+          method: "PUT", // Method itself
+          headers: {
+            "Content-type": "application/json; charset=UTF-8", // Indicates the content
+          },
+          body: JSON.stringify(currentUser), // We send data in JSON format
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           const token = data.token;

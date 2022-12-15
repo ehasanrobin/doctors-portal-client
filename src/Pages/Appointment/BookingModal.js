@@ -25,7 +25,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
       date: date,
     };
 
-    fetch("http://localhost:5000/booking", {
+    fetch("https://doctors-portal-server-kappa-seven.vercel.app/booking", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

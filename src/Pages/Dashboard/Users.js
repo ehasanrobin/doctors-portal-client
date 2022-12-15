@@ -10,7 +10,7 @@ const Users = () => {
     data: users,
     refetch,
   } = useQuery("repoData", () =>
-    fetch("http://localhost:5000/users", {
+    fetch("https://doctors-portal-server-kappa-seven.vercel.app/users", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

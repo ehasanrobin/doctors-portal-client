@@ -5,13 +5,16 @@ const DeleteConfirmModal = ({ deleteConfirm, refetch }) => {
   const { name, email } = deleteConfirm;
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/doctors/${email}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://doctors-portal-server-kappa-seven.vercel.app/doctors/${email}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((result) => {
         refetch();
